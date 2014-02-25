@@ -43,6 +43,50 @@ view.backgroundColor = [UIColor orangeColor];
 UIApplication.sharedApplication.delegate;
 ```
 
+## Code Organization
+
+Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
+
+```objc
+#pragma mark - Lifecycle
+
+- (instancetype)init {}
+- (void)dealloc {}
+- (void)viewDidLoad {}
+- (void)viewWillAppear:(BOOL)animated {}
+- (void)didReceiveMemoryWarning {}
+
+#pragma mark - Custom Accessors
+
+- (void)setCustomProperty:(id)value {}
+- (id)customProperty {}
+
+#pragma mark - IBActions
+
+- (IBAction)submitData:(id)sender {}
+
+#pragma mark - Public
+
+- (void)publicMethod {}
+
+#pragma mark - Private
+
+- (void)privateMethod {}
+
+#pragma mark - Protocol conformance
+#pragma mark - UITextFieldDelegate
+#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {}
+
+#pragma mark - NSObject
+
+- (NSString *)description {}
+```
+
 ## Spacing
 
 * Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
@@ -204,6 +248,14 @@ Instance variables should be camel-case with the leading word being lowercase, a
 id varnm;
 ```
 
+### Underscores
+
+When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. 
+
+An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.
+
+Local variables should not contain underscores.
+
 ## Comments
 
 When they are needed, comments should be used to explain **why** a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.
@@ -299,15 +351,97 @@ static const CGFloat NYTImageThumbnailHeight = 50.0;
 
 ## Enumerated Types
 
-When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types — `NS_ENUM()`
+When using `enum`s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: `NS_ENUM()`
 
-**Example:**
+**For Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, NYTAdRequestState) {
-    NYTAdRequestStateInactive,
-    NYTAdRequestStateLoading
+typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
+  RWTLeftMenuTopItemMain,
+  RWTLeftMenuTopItemShows,
+  RWTLeftMenuTopItemSchedule
 };
+```
+
+You can also make explicit value assignments (showing older k-style constant definition):
+
+```objc
+typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
+  RWTPinSizeMin = 1,
+  RWTPinSizeMax = 5,
+  RWTPinCountMin = 100,
+  RWTPinCountMax = 500,
+};
+```
+
+Older k-style constant definitions should be **avoided** unless writing CoreFoundation C code (unlikely).
+
+**Not Preferred:**
+
+```objc
+enum GlobalConstants {
+  kMaxPinSize = 5,
+  kMaxPinCount = 500,
+};
+```
+
+## Case Statements
+
+Braces are not required for case statements, unless enforced by the complier.  
+When a case contains more than one line, braces should be added.
+
+```objc
+switch (condition) {
+  case 1:
+    // ...
+    break;
+  case 2: {
+    // ...
+    // Multi-line example using braces
+    break;
+  }
+  case 3:
+    // ...
+    break;
+  default: 
+    // ...
+    break;
+}
+
+```
+
+There are times when the same code can be used for multiple cases, and a fall-through should be used.  A fall-through is the removal of the 'break' statement for a case thus allowing the flow of execution to pass to the next case value.  A fall-through should be commented for coding clarity.
+
+```objc
+switch (condition) {
+  case 1:
+    // ** fall-through! **
+  case 2:
+    // code executed for values 1 and 2
+    break;
+  default: 
+    // ...
+    break;
+}
+
+```
+
+When using an enumerated type for a switch, 'default' is not needed.   For example:
+
+```objc
+RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
+
+switch (menuType) {
+  case RWTLeftMenuTopItemMain:
+    // ...
+    break;
+  case RWTLeftMenuTopItemShows:
+    // ...
+    break;
+  case RWTLeftMenuTopItemSchedule:
+    // ...
+    break;
+}
 ```
 
 ## Private Properties
@@ -398,6 +532,47 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
 }
 ```
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
+
+
+## Golden Path
+
+When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path.  That is, don't nest `if` statements.  Multiple return statements are OK.
+
+**Preferred:**
+
+```objc
+- (void)someMethod {
+  if (![someOther boolValue]) {
+	return;
+  }
+
+  //Do something important
+}
+```
+
+**Not Preferred:**
+
+```objc
+- (void)someMethod {
+  if ([someOther boolValue]) {
+    //Do something important
+  }
+}
+```
+
+## Line Breaks
+
+Line breaks are an important topic since this style guide is focused for print and online readability.
+
+For example:
+```objc
+self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
+```
+A long line of code like this should be carried on to the second line adhering to this style guide's Spacing section (two spaces).
+```objc
+self.productsRequest = [[SKProductsRequest alloc] 
+  initWithProductIdentifiers:productIdentifiers];
+```
 
 ## Xcode project
 
