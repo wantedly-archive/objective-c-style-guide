@@ -603,6 +603,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 * Extensionsには、カテゴリを定義する
 * 以下のディレクトリ構成に従う
 
+```
 .
 +-- Classes
 |   +-- WTDAppDelegate.h
@@ -619,6 +620,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 |   +-- Locales
 |   +-- Images.xcassets
 +-- Supporting Files
+```
 
 ## Cocoapods
 * ライブラリの管理はcocoapodsを使う
