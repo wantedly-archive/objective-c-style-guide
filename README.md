@@ -7,6 +7,7 @@ Wantedlyでこれから出すiOSアプリのcoding規約を統一するために
 
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
+* [Code Organization](#code-organization) 
 * [Spacing](#spacing) 
 * [Conditionals](#conditionals)
   * [Ternary Operator](#ternary-operator)
@@ -14,18 +15,21 @@ Wantedlyでこれから出すiOSアプリのcoding規約を統一するために
 * [Methods](#methods)
 * [Variables](#variables)
 * [Naming](#naming)
+  * [Underscores](#underscores)
 * [Comments](#comments)
 * [Init & Dealloc](#init-and-dealloc)
 * [Literals](#literals)
 * [CGRect Functions](#cgrect-functions)
 * [Constants](#constants)
+* [Case Statements](#case-statements)
 * [Enumerated Types](#enumerated-types)
 * [Private Properties](#private-properties)
 * [Image Naming](#image-naming)
 * [Booleans](#booleans)
 * [Singletons](#singletons)
+* [Golden Path](#golden-path)
+* [Line Breaks](#line-breaks)
 * [Xcode Project](#xcode-project)
-
 
 ## Dot-Notation Syntax
 
