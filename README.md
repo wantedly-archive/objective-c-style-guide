@@ -3,7 +3,7 @@
 This style guide outlines the coding conventions for wantedly.com.
 
 ## Introduction
-Wantedlyでこれから出すiOSアプリのcoding規約を統一するために作成。
+This style guide outlines the coding conventions of the iOS team at The Wantedly. We welcome your feedback in [issues](https://github.com/wantedly/objetive-c-style-guide/issues), [pull requests](https://github.com/wantedly/objetive-c-style-guide/pulls) and [tweets](https://twitter.com/wantedly). Also, [we're hiring](http://wantedly.com/companies/wantedly/).
 
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
