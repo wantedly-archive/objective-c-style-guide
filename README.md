@@ -5,6 +5,28 @@ This style guide outlines the coding conventions for wantedly.com.
 ## Introduction
 Wantedlyでこれから出すiOSアプリのcoding規約を統一するために作成。
 
+## Table of Contents
+* [Dot-Notation Syntax](#dot-notation-syntax)
+* [Spacing](#spacing) 
+* [Conditionals](#conditionals)
+  * [Ternary Operator](#ternary-operator)
+* [Error handling](#error-handling)
+* [Methods](#methods)
+* [Variables](#variables)
+* [Naming](#naming)
+* [Comments](#comments)
+* [Init & Dealloc](#init-and-dealloc)
+* [Literals](#literals)
+* [CGRect Functions](#cgrect-functions)
+* [Constants](#constants)
+* [Enumerated Types](#enumerated-types)
+* [Private Properties](#private-properties)
+* [Image Naming](#image-naming)
+* [Booleans](#booleans)
+* [Singletons](#singletons)
+* [Xcode Project](#xcode-project)
+
+
 ## Dot-Notation Syntax
 
 Dot-notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
