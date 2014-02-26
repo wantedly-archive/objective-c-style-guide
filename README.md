@@ -583,12 +583,12 @@ self.productsRequest = [[SKProductsRequest alloc]
 ```
 
 ## Category
-* UIColorは、カテゴリで定義する
+* UIColor is defined as category.
 
 ## Storyboard
-* なるべくStoryboardを使って実装する。
-* viewが多い場合は、機能ごとやタブごとにStoryboardを分ける。
-* ViewのIDやSegueのIDは、WTDConstantsに定義する
+* Use Storyboard and autolayout.
+* Storyboard is devided from function.
+* View ID and Segue ID is defined in WTDConstants.
 
 ```
 //StoryboardIdentifier
@@ -600,8 +600,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 ```
 
 ## Directory
-* Extensionsには、カテゴリを定義する
-* 以下のディレクトリ構成に従う
+* Extensions is defined by the category.
 
 ```
 .
@@ -623,8 +622,8 @@ self.productsRequest = [[SKProductsRequest alloc]
 ```
 
 ## Cocoapods
-* ライブラリの管理はcocoapodsを使う
-* 以下のライブラリに似た機能を実装する際は、特定の理由がない限り、以下のライブラリを使う。
+* Use cocoapods as much as possible.
+* Use this libraries if you implement functionality similar.
   * RestKit
   * AFNetworking
   * SDWebImage
@@ -633,7 +632,6 @@ self.productsRequest = [[SKProductsRequest alloc]
   * SVProgressHUD
   * TTTAttributedLabel
   * NUI
-* cocoapodsにあるライブラリはcocoapodsを利用する
 
 ## Xcode project
 
