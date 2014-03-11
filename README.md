@@ -623,15 +623,18 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 ## Cocoapods
 * Use cocoapods as much as possible.
+
+## Priceless Pods
 * Use this libraries if you implement functionality similar.
-  * RestKit
-  * AFNetworking
-  * SDWebImage
-  * RNCryptor
-  * UICKeyChainStore
-  * SVProgressHUD
-  * TTTAttributedLabel
-  * NUI
+  * RestKit -  consuming and modeling RESTful web resources
+  * AFNetworking - networking framework
+  * SDWebImage - Asynchronous image downloader with cache support with an UIImageView category
+  * RNCryptor - Encryptor/Decryptor 
+  * UICKeyChainStore -  a simple wrapper for Keychain
+  * SVProgressHUD - A clean and lightweight progress HUD
+  * TTTAttributedLabel - A drop-in replacement for UILabel that supports attributes, data detectors, links, and more.
+  * NUI - Style iOS apps with a stylesheet, similar to CSS
+* site for searching popular cocoapods  [http://cocoapods.wantedly.com/](http://cocoapods.wantedly.com/) 
 
 ## Xcode project
 
