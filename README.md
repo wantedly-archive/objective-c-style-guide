@@ -634,6 +634,7 @@ self.productsRequest = [[SKProductsRequest alloc]
   * SVProgressHUD - A clean and lightweight progress HUD
   * TTTAttributedLabel - A drop-in replacement for UILabel that supports attributes, data detectors, links, and more.
   * NUI - Style iOS apps with a stylesheet, similar to CSS
+  * JLRoutes - Advanced URL parsing designed to handle complex URL schemes with a block-based callback API
 * site for searching popular cocoapods  [http://cocoapods.wantedly.com/](http://cocoapods.wantedly.com/) 
 
 ## Xcode project
