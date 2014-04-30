@@ -587,7 +587,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 
 ## Storyboard
 * Use Storyboard and autolayout.
-* Storyboard is devided from function.
+* Storyboards should define user interfaces, not functionality.
 * View ID and Segue ID is defined in WTDConstants.
 
 ```
@@ -625,7 +625,7 @@ self.productsRequest = [[SKProductsRequest alloc]
 * Use cocoapods as much as possible.
 
 ## Priceless Pods
-* Use this libraries if you implement functionality similar.
+* Use these libraries instead of reinventing the wheel:
   * RestKit -  consuming and modeling RESTful web resources
   * AFNetworking - networking framework
   * SDWebImage - Asynchronous image downloader with cache support with an UIImageView category
